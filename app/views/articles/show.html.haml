@@ -4,7 +4,11 @@
 %p= @article.body
 %br
 %p= @article.likes.count.to_s + " Likes"
-=link_to "Like", like_path(id: @article.id)
+- if current_user.present?
+  - if @article.likes.where(user_id: current_user.id).present?
+    =link_to "Unlike", like_path(id: @article.id)
+  - else
+    =link_to "Like", like_path(id: @article.id)
 %br
 - if current_user.present?
   =link_to "Edit Article", edit_article_path
