@@ -8,8 +8,9 @@
   %div
     =form.label :body, class: 'form-label'
     %br
-    =form.text_field :body, class: 'form-control'
+    =form.text_area :body, class: 'form-control', row: 5
     - @article.errors.full_messages_for(:body).each do |error|
       %p= error
-  %div
-    =form.submit
+  %div.mt-5.d-flex.justify-content-between
+    =link_to "Back", root_path, class: 'fas fa-arrow-circle-left'
+    =form.submit "Create Article", class: 'btn btn-outline-success'

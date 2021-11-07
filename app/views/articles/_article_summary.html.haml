@@ -1,0 +1,9 @@
+%div.article-container.mt-5
+  %h2.header
+    =link_to article.title, article
+  %img.article-summary-image{src: "https://media-exp1.licdn.com/dms/image/C4D1BAQHN1Wjx6q7y5A/company-background_10000/0/1536143536378?e=2159024400&v=beta&t=UEy87KIIG4pCmK6YK8xnc5ykBLH3X4O2G1m2qUvVp6o"}
+  %div.body
+    =article.body.truncate(500, separator: "...")
+    - if article.body.size > 500
+      =link_to "Read More", article
+  %hr

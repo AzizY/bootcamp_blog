@@ -1,8 +1,14 @@
 // inside app/frontend/packs/application.scss  
 
-// Just a quick ugly style to see if our CSS works  
+// Just a quick ugly style to see if our CSS works
 h1 {
-  text-decoration: underline;
+  color: #e056fd;
+}
+a{
+  text-decoration: none !important;
+}
+li{
+  list-style: none;
 }
 .content{
   width: 45vw;
