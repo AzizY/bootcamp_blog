@@ -39,9 +39,19 @@ class ArticlesController < ApplicationController
 
     redirect_to root_path
   end
+
+  def like
+    @article = Article.find params[:id]
+    like = @article.likes.new
+    like.user_id = current_user.id
+    like.save
+
+    redirect_to @article
+  end
+
   private
 
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :image)
   end
 end

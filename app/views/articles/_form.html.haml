@@ -11,6 +11,11 @@
     =form.text_area :body, class: 'form-control', row: 5
     - @article.errors.full_messages_for(:body).each do |error|
       %p= error
+  %div
+    =form.label :image, class: 'form-label'
+    %br
+    =form.file_field :image, class: 'form-control'
   %div.mt-5.d-flex.justify-content-between
+    %i.fas.fa-arrow-circle-left
     =link_to "Back", root_path, class: 'fas fa-arrow-circle-left'
     =form.submit "Create Article", class: 'btn btn-outline-success'

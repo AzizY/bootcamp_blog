@@ -6,4 +6,5 @@
   %p
     %strong Comment:
     =comment.body
-  =link_to "Delete Comment", [comment.article, comment], method: "delete", data: { confirm: "Are you sure?" }
+  - if current_user.present?
+    =link_to "Delete Comment", [comment.article, comment], method: "delete", data: { confirm: "Are you sure?" }
