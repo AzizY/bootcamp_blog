@@ -42,9 +42,14 @@ class ArticlesController < ApplicationController
 
   def like
     @article = Article.find params[:id]
-    like = @article.likes.new
-    like.user_id = current_user.id
-    like.save
+    if @article.likes.where(user_id: current_user.id).present?
+      like = @article.likes.where(user_id: current_user.id).first
+      like.destroy
+    else
+      like = @article.likes.new
+      like.user_id = current_user.id
+      like.save
+    end
 
     redirect_to @article
   end
